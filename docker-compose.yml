@@ -78,6 +78,10 @@ services:
     container_name: coturn
     restart: unless-stopped
     network_mode: host
+    deploy:
+      resources:
+        limits:
+          memory: 128M
     env_file:
       - .env
     volumes:
@@ -117,6 +121,10 @@ services:
   netdata:
     image: netdata/netdata:stable
     container_name: netdata
+    deploy:
+      resources:
+        limits:
+          memory: 256M
     ports:
       - "19999:19999"
     restart: unless-stopped
@@ -141,6 +149,10 @@ services:
     container_name: fail2ban
     restart: unless-stopped
     network_mode: host
+    deploy:
+      resources:
+        limits:
+          memory: 128M
     cap_add:
       - NET_ADMIN
       - NET_RAW
