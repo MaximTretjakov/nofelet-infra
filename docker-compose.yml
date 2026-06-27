@@ -116,7 +116,8 @@ services:
         max-size: "10m"
         max-file: "3"
     networks:
-      - internal_net
+      internal_net:
+        ipv4_address: 172.21.0.10
 
   netdata:
     image: netdata/netdata:stable
@@ -171,6 +172,9 @@ services:
 networks:
   internal_net:
     driver: bridge
+    ipam:
+      config:
+        - subnet: 172.21.0.0/16
 
 volumes:
   pg_data:
