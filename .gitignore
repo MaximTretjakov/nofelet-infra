@@ -46,3 +46,4 @@ docs/swagger.yaml
 # service configs
 coturn/*.conf
 fail2ban/*.local
+netdata/go.d/postgres.conf
