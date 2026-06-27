@@ -125,8 +125,6 @@ services:
       resources:
         limits:
           memory: 256M
-    ports:
-      - "19999:19999"
     restart: unless-stopped
     pid: host
     network_mode: host
@@ -136,12 +134,22 @@ services:
     security_opt:
       - apparmor=unconfined
     volumes:
-      - netdata_config:/etc/netdata
+      # Конфиги из Git
+      - ./netdata/netdata.conf:/etc/netdata/netdata.conf:ro
+      - ./netdata/go.d:/etc/netdata/go.d:ro
+      - ./netdata/health.d:/etc/netdata/health.d:ro
+
+      # Постоянные данные
       - netdata_lib:/var/lib/netdata
       - netdata_cache:/var/cache/netdata
+
+      # Host
       - /proc:/host/proc:ro
       - /sys:/host/sys:ro
       - /etc/os-release:/host/etc/os-release:ro
+      - /etc/passwd:/host/etc/passwd:ro
+      - /etc/group:/host/etc/group:ro
+      - /etc/hostname:/host/etc/hostname:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
 
   fail2ban:

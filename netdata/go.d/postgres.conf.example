@@ -1,0 +1,6 @@
+jobs:
+  - name: nofelet
+    dsn: ""
+    collect_databases: true
+    collect_functions: false
+    timeout: 2
