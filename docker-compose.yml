@@ -166,7 +166,7 @@ services:
       - NET_ADMIN
       - NET_RAW
     volumes:
-      - ./fail2ban:/etc/fail2ban
+      - ./fail2ban:/config
       - /var/lib/docker/containers:/var/lib/docker/containers:ro
 
 networks:
