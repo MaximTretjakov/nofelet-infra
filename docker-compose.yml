@@ -154,7 +154,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
 
   fail2ban:
-    image: crazymax/fail2ban:latest
+    image: lscr.io/linuxserver/fail2ban:latest
     container_name: fail2ban
     restart: unless-stopped
     network_mode: host
@@ -166,8 +166,8 @@ services:
       - NET_ADMIN
       - NET_RAW
     volumes:
-      - ./fail2ban:/data
-      - /var/log:/var/log:ro
+      - ./fail2ban:/etc/fail2ban
+      - /var/lib/docker/containers:/var/lib/docker/containers:ro
 
 networks:
   internal_net:
