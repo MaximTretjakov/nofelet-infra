@@ -166,10 +166,9 @@ services:
       - NET_ADMIN
       - NET_RAW
     volumes:
-#     - ./fail2ban:/config
-      - ./fail2ban/jail.local:/config/fail2ban/jail.local
-      - ./fail2ban/jail.d:/config/fail2ban/jail.d
-      - ./fail2ban/filter.d:/config/fail2ban/filter.d
+      - /opt/nofelet-infra/fail2ban/jail.d:/data/jail.d
+      - /opt/nofelet-infra/fail2ban/filter.d:/data/filter.d
+      - /var/log:/var/log:ro
       - /var/lib/docker/containers:/var/lib/docker/containers:ro
 
 networks:
