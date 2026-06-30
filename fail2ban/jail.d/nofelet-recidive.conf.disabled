@@ -1,6 +1,6 @@
 [recidive]
 enabled = true
-backend = auto
+backend = polling
 logpath = /var/log/fail2ban.log
 findtime = 7d
 maxretry = 5
