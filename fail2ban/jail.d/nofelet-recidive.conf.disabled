@@ -1,8 +1,0 @@
-[recidive]
-enabled = true
-backend = polling
-logpath = /var/log/fail2ban.log
-findtime = 7d
-maxretry = 5
-bantime = 30d
-action = iptables-allports
