@@ -46,11 +46,9 @@ Total bans       : $total_bans
 
 404 failures     : $f404_failed
 TLS failures     : $tls_failed
-Scanner failures : $scanner_failed
 
 404 banned       : $f404_banned
 TLS banned       : $tls_banned
-Scanner banned   : $scanner_banned
 
 ===========================
 
